@@ -1,13 +1,3 @@
-input, select, textarea {
-    width: 100%;
-    border: 2px solid #e1e1e1;
-    border-radius: 10px;
-    font-size: 16px;
-    box-shadow: 
-        2px 2px 5px rgba(0, 0, 0, 0.05),
-        inset 2px 2px 7px rgba(0, 0, 0, 0.05);
-}
-
 .add {
     display: flex;
     justify-content: center;
@@ -25,9 +15,8 @@ input, select, textarea {
 
         .sections {
             display: flex;
-            flex-direction: column;
             justify-content: space-between;
-            gap: 10px;
+            gap: 100px;
 
             .left, .right {
                 flex: 1;
@@ -47,7 +36,6 @@ input, select, textarea {
 
                 .images {
                     display: flex;
-                    flex-direction: column;
                     align-items: center;
                     gap: 20px;
 
@@ -55,7 +43,6 @@ input, select, textarea {
                         display: flex;
                         flex-direction: column;
                         gap: 20px;
-                        width: 100%;
                     }
 
                     button {
@@ -76,7 +63,6 @@ input, select, textarea {
                     font-size: 18px;
                     color: #fff;
                     cursor: pointer;
-                    width: 100%;
                 }
             }
 
@@ -115,40 +101,5 @@ input, select, textarea {
                 flex-direction: column-reverse;
             }
         }
-    }
-}
-
-.createButton {
-    width: 100%;
-    background-color: var(--green-color);
-    padding: 16px;
-    color: white;
-    font-weight: 500;
-    border: none;
-    font-size: 18px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 20px;
-
-    &:hover {
-        background-color: #1dcf73;
-    }
-}
-
-.imagesInputs {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-
-    input {
-        width: 100%;
-        padding: 12px;
-        border: 2px solid #e1e1e1;
-        border-radius: 10px;
-        margin-top: 5px;
-        font-size: 16px;
-        box-shadow: 
-            2px 2px 5px rgba(0, 0, 0, 0.05),
-            inset 2px 2px 7px rgba(0, 0, 0, 0.05);
     }
 }
