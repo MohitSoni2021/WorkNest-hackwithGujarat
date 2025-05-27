@@ -111,11 +111,15 @@ const Add = () => {
 
             <div className="images">
               <div className="imagesInputs">
-                <label htmlFor="">Cover Image</label>
-                <input type="file" accept='image/*' onChange={(event) => setCoverImage(event.target.files[0])} />
-                <br />
-                <label htmlFor="">Upload Images</label>
-                <input type="file" accept='image/*' multiple onChange={(event) => setGigImages(event.target.files)} />
+                <div className="">
+                  <label htmlFor="">Cover Image</label>
+                  <input type="file" accept='image/*' onChange={(event) => setCoverImage(event.target.files[0])} /> 
+                </div>
+                
+                <div className="">
+                  <label htmlFor="">Upload Images</label>
+                  <input type="file" accept='image/*' multiple onChange={(event) => setGigImages(event.target.files)} />  
+                </div>
               </div>
               <button disabled={!!disabled} onClick={handleImageUploads}>{uploading ? 'uploading' : disabled ? 'Uploaded' : 'upload'}</button>
             </div>
