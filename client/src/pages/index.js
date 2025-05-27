@@ -1,0 +1,14 @@
+export { default as Home } from './home/Home.jsx';
+export { default as Footer } from './Footer/Footer';
+export { default as Gig } from './gig/Gig.jsx';
+export { default as Gigs } from './gigs/Gigs';
+export { default as Orders } from './orders/Orders';
+export { default as MyGigs } from './myGigs/MyGigs';
+export { default as Add } from './add/Add';
+export { default as Message } from './message/Message';
+export { default as Messages } from './messages/Messages';
+export { default as Login } from './Auth/Login/Login';
+export { default as Register } from './Auth/Register/Register';
+export { default as Pay } from './pay/Pay';
+export { default as Success } from './success/Success';
+export { default as NotFound } from './NotFound/NotFound';

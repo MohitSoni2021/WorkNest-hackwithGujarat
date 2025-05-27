@@ -1,0 +1,108 @@
+.login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(145deg, #f8f9fa, #f0f2f5);
+
+    form {
+        width: 360px;
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(145deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0));
+            z-index: 0;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        label {
+            color: #666;
+            font-size: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        input,
+        textarea {
+            padding: 16px 20px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            background: #fff;
+            border-radius: 10px;
+            color: #333;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 1;
+
+            &:focus {
+                border-color: #1dbf73;
+                box-shadow: 0 0 15px rgba(29, 191, 115, 0.1);
+                outline: none;
+            }
+        }
+
+        button {
+            border: none;
+            padding: 16px;
+            color: #fff;
+            font-weight: 600;
+            font-size: 16px;
+            background: linear-gradient(145deg, #1dbf73, #15b367);
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 4px 15px rgba(29, 191, 115, 0.2);
+
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(29, 191, 115, 0.3);
+            }
+
+            &:disabled {
+                background: linear-gradient(145deg, #e0e0e0, #d0d0d0);
+                color: #666;
+                cursor: not-allowed;
+                box-shadow: none;
+            }
+        }
+
+        span {
+            color: #ff4d4d;
+            font-size: 14px;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media screen and (max-width: 600px) {
+            width: 90%;
+            margin: 20px auto;
+        }
+    }
+}

@@ -1,0 +1,112 @@
+.cardContainer {
+    height: 345px;
+    color: #fff;
+    border-radius: 16px;
+    margin: 0 15px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.2) 0%,
+            rgba(0, 0, 0, 0.6) 100%
+        );
+        z-index: 1;
+        transition: all 0.4s ease;
+    }
+
+    &:hover {
+        transform: translateY(-8px);
+
+        &::before {
+            background: linear-gradient(
+                to bottom,
+                rgba(13, 8, 77, 0.7) 0%,
+                rgba(26, 27, 46, 0.8) 100%
+            );
+        }
+
+        img {
+            transform: scale(1.05);
+        }
+
+        .desc {
+            transform: translateY(5px);
+            opacity: 1;
+        }
+
+        .title {
+            transform: translateY(-5px);
+        }
+    }
+    
+    img {
+        border-radius: 16px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+    }
+
+    .desc {
+        font-weight: 400;
+        position: absolute;
+        top: 25px;
+        left: 25px;
+        z-index: 2;
+        opacity: 0.9;
+        font-size: 1rem;
+        transition: all 0.4s ease;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        background: rgba(255, 255, 255, 0.1);
+        padding: 6px 12px;
+        border-radius: 20px;
+        backdrop-filter: blur(5px);
+    }
+
+    .title {
+        font-weight: 600;
+        font-size: 28px;
+        position: absolute;
+        top: 70px;
+        left: 25px;
+        z-index: 2;
+        transition: all 0.4s ease;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        letter-spacing: -0.02em;
+        
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, #1dbf73 0%, #19a563 100%);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        height: 280px;
+        margin: 0 10px;
+
+        .title {
+            font-size: 24px;
+        }
+
+        .desc {
+            font-size: 0.9rem;
+        }
+    }
+}
