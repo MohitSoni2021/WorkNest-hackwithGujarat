@@ -1,65 +1,206 @@
 .orders {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(145deg, #f8f9ff, #ffffff);
+
+    .top-section {
+        background: linear-gradient(180deg, #0A0B1A 0%, #1A1B2E 100%);
+        padding: 80px 0 160px;
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(29, 191, 115, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            background: linear-gradient(90deg, #FFFFFF 0%, #E0E0E0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+        }
+    }
 
     .loader {
         width: 100%;
+        height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
     .container {
-        width: 75%;
-        margin: auto;
-        padding: 50px 0px;
-        overflow-x: scroll;
-        
-        &::-webkit-scrollbar {
-            display: none;
-        }
+        width: min(1200px, 90%);
+        margin: -80px auto 60px;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        border-radius: 24px;
+        border: 5px solid rgba(255, 255, 255, 0.8);
+        box-shadow: 
+        7px 7px 5px rgba(0, 0, 0, 0.05),
+        inset 7px 7px 5px rgba(0, 0, 0, 0.05);
+        position: relative;
+        z-index: 1;
+        margin-top: 40px;
         
         .title {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            margin-bottom: 32px;
+            padding-left: 24px;
+            padding-top: 18px;
+
+            h1 {
+                font-size: 28px;
+                font-weight: 600;
+                color: rgba(26, 27, 46, 0.9);
+                letter-spacing: -0.02em;
+            }
         }
         
         table {
-            min-width: 100%;
-            margin: auto;
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 8px;
+            margin-top: 8px;
 
-            tr {
-                height: 50px;
+            thead {
+                tr {
+                    th {
+                        padding: 0 16px 16px;
+                        color: rgba(26, 27, 46, 0.6);
+                        font-weight: 500;
+                        font-size: 14px;
+                        text-transform: uppercase;
+                        letter-spacing: 0.5px;
+                        text-align: left;
 
-                th {
-                    text-align: left;
-                }
-
-                td {
-                    img {
-                        width: 100px;
-                        height: 100px;
-                        object-fit: contain;
+                        &:first-child { padding-left: 24px; }
+                        &:last-child { padding-right: 24px; }
                     }
-                    padding: 0 10px;
                 }
+            }
 
-                .message {
-                    width: 30px;
-                    height: 30px;
-                    // border-radius: 50%;
-                    cursor: pointer; 
-                }
+            tbody {
+                tr {
+                    transition: all 0.3s ease;
 
-                &:nth-child(even) {
-                    background-color: #00ff620f;
+                    td {
+                        padding: 16px;
+                        background: rgba(255, 255, 255, 0.5);
+                        border-top: 1px solid rgba(255, 255, 255, 0.8);
+                        border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+                        font-size: 15px;
+                        color: rgba(26, 27, 46, 0.8);
+
+                        &:first-child {
+                            border-left: 1px solid rgba(255, 255, 255, 0.8);
+                            border-top-left-radius: 12px;
+                            border-bottom-left-radius: 12px;
+                            padding-left: 24px;
+                        }
+
+                        &:last-child {
+                            border-right: 1px solid rgba(255, 255, 255, 0.8);
+                            border-top-right-radius: 12px;
+                            border-bottom-right-radius: 12px;
+                            padding-right: 24px;
+                        }
+
+                        img.img {
+                            width: 80px;
+                            height: 50px;
+                            object-fit: cover;
+                            border-radius: 8px;
+                        }
+
+                        img.message {
+                            width: 24px;
+                            height: 24px;
+                            cursor: pointer;
+                            opacity: 0.6;
+                            transition: all 0.3s ease;
+
+                            &:hover {
+                                opacity: 1;
+                                transform: scale(1.1);
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        transform: translateY(-2px);
+                        
+                        td {
+                            background: rgba(255, 255, 255, 0.8);
+                        }
+                    }
                 }
             }
         }
+    }
 
-        @media screen and (max-width: 900px) {
-            width: 90%;
+    @media screen and (max-width: 1024px) {
+        .container {
+            padding: 30px;
+            width: 95%;
+
+            .title {
+                margin-bottom: 24px;
+                
+                h1 {
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .top-section {
+            padding: 60px 0 140px;
+        }
+
+        .container {
+            padding: 20px;
+            margin-top: -60px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+
+            table {
+                thead {
+                    tr {
+                        th {
+                            padding: 0 12px 12px;
+                            white-space: nowrap;
+                        }
+                    }
+                }
+
+                tbody {
+                    tr {
+                        td {
+                            padding: 12px;
+                            white-space: nowrap;
+
+                            img.img {
+                                width: 60px;
+                                height: 40px;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

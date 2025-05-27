@@ -6,6 +6,7 @@ const satelize = require('satelize');
 const { JWT_SECRET, NODE_ENV } = process.env;
 const saltRounds = 10;
 
+
 const authRegister = async (request, response) => {
     const { username, email, phone, password, image, isSeller, description } = request.body;
     const list = request.headers['x-forwarded-for'] || request.socket.remoteAddress;
@@ -53,6 +54,8 @@ const authRegister = async (request, response) => {
 const authLogin = async (request, response) => {
     const { username, password } = request.body;
 
+    console.log(username, password)
+
     try {
         const user = await User.findOne({ username });
         if(!user) {
@@ -60,18 +63,22 @@ const authLogin = async (request, response) => {
         }
 
         const match = bcrypt.compareSync(password, user.password);
+        console.log(match);
         if(match) {
             const { password, ...data } = user._doc;
+            console.log("line 68 working..")
+
+            console.log(user.isSeller)
 
             const token = jwt.sign({
                 _id: user._id,
                 isSeller: user.isSeller
             }, JWT_SECRET, { expiresIn: '7 days' });
 
+            console.log("line 75 working..", token)
+
             const cookieConfig =  {
                 httpOnly: true,
-                sameSite: NODE_ENV === 'production' ? 'none' : 'strict',
-                secure: NODE_ENV === 'production',
                 maxAge: 60 * 60 * 24 * 7 * 1000, // 7 days
                 path: '/'
             }

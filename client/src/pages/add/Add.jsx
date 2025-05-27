@@ -122,7 +122,7 @@ const Add = () => {
 
             <label htmlFor="">Description</label>
             <textarea name='description' cols="30" rows="16" placeholder='Brief descriptions to introduce your service to customers' onChange={handleFormCange}></textarea>
-            <button onClick={handleFormSubmit}>Create</button>
+            
           </div>
 
           <div className="right">
@@ -158,6 +158,7 @@ const Add = () => {
             <input name='price' type="number" min='1' onChange={handleFormCange} />
           </div>
         </div>
+        <button onClick={handleFormSubmit} className='createButton'>Create</button>
       </div>
     </div>
   )

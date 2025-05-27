@@ -84,7 +84,7 @@
                 gap: 10px;
                 cursor: pointer;
                 position: relative;
-                z-index: 1;
+                z-index: 999;
 
                 img {
                     width: 32px;
@@ -98,10 +98,10 @@
                 .options {
                     width: 200px;
                     position: absolute;
-                    top: 50px;
+                    top: 80px;
                     right: 0;
                     padding: 20px;
-                    z-index: 2;
+                    z-index: 9999;
                     background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(245, 245, 245, 0.95));
                     backdrop-filter: blur(10px);
                     -webkit-backdrop-filter: blur(10px);
@@ -175,6 +175,7 @@
             cursor: pointer;
             text-align: center;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
             
             &:hover {
                 transform: translateY(-2px);
