@@ -3,23 +3,26 @@ const { CustomException } = require('../utils');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const satelize = require('satelize');
-const { JWT_SECRET } = process.env;
+const { JWT_SECRET, NODE_ENV } = process.env;
 const saltRounds = 10;
-
 
 const authRegister = async (request, response) => {
     const { username, email, phone, password, image, isSeller, description } = request.body;
     const list = request.headers['x-forwarded-for'] || request.socket.remoteAddress;
     const ips = list.split(',');
+    console.log(request.body);
     try {
         const hash = bcrypt.hashSync(password, saltRounds);
-        const { country } = satelize.satelize({ ip: ips[0] });
+       // const { country } = satelize.satelize({ ip: ips[0] }, (error, payload) => payload);
+        console.log("message show");
+        
+        
         const user = new User({
             username,
             email,
             password: hash,
             image,
-            country,
+            country: "India",
             description,
             isSeller,
             phone
@@ -32,6 +35,7 @@ const authRegister = async (request, response) => {
         });
     }
     catch({message}) {
+        console.log(message);
         if(message.includes('E11000')) {
             return response.status(400).send({
                 error: true,
@@ -58,6 +62,7 @@ const authLogin = async (request, response) => {
         const match = bcrypt.compareSync(password, user.password);
         if(match) {
             const { password, ...data } = user._doc;
+
             const token = jwt.sign({
                 _id: user._id,
                 isSeller: user.isSeller
@@ -65,10 +70,10 @@ const authLogin = async (request, response) => {
 
             const cookieConfig =  {
                 httpOnly: true,
+                sameSite: NODE_ENV === 'production' ? 'none' : 'strict',
+                secure: NODE_ENV === 'production',
                 maxAge: 60 * 60 * 24 * 7 * 1000, // 7 days
-                path: '/',
-                sameSite: 'strict',
-                secure: false
+                path: '/'
             }
 
             return response.cookie('accessToken', token, cookieConfig)
@@ -91,8 +96,8 @@ const authLogin = async (request, response) => {
 
 const authLogout = async (request, response) => {
     return response.clearCookie('accessToken', {
-        sameSite: 'strict',
-        secure: process.env.NODE_ENV !== 'development'
+        sameSite: 'none',
+        secure: true
     })
     .send({
         error: false,
@@ -128,4 +133,3 @@ module.exports = {
     authRegister,
     authStatus
 }
-
