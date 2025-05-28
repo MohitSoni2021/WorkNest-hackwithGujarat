@@ -2,10 +2,10 @@ const { User } = require('../models');
 const { CustomException } = require('../utils');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-
-const JWT_SECRET = process.env.JWT_SECRET;
-const NODE_ENV = process.env.NODE_ENV;
+const satelize = require('satelize');
+const { JWT_SECRET } = process.env;
 const saltRounds = 10;
+
 
 const authRegister = async (request, response) => {
     const { username, email, phone, password, image, isSeller, description } = request.body;
@@ -13,8 +13,7 @@ const authRegister = async (request, response) => {
     const ips = list.split(',');
     try {
         const hash = bcrypt.hashSync(password, saltRounds);
-        const { country } = await satelize.satelize({ ip: ips[0] });
-
+        const { country } = satelize.satelize({ ip: ips[0] });
         const user = new User({
             username,
             email,
@@ -66,10 +65,10 @@ const authLogin = async (request, response) => {
 
             const cookieConfig =  {
                 httpOnly: true,
-                sameSite: NODE_ENV === 'production' ? 'none' : 'strict',
-                secure: NODE_ENV === 'production',
                 maxAge: 60 * 60 * 24 * 7 * 1000, // 7 days
-                path: '/'
+                path: '/',
+                sameSite: 'strict',
+                secure: false
             }
 
             return response.cookie('accessToken', token, cookieConfig)
@@ -92,8 +91,8 @@ const authLogin = async (request, response) => {
 
 const authLogout = async (request, response) => {
     return response.clearCookie('accessToken', {
-        sameSite: 'none',
-        secure: NODE_ENV === 'production' ? true : false
+        sameSite: 'strict',
+        secure: process.env.NODE_ENV !== 'development'
     })
     .send({
         error: false,
