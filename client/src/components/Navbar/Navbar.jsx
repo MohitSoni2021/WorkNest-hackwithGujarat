@@ -194,7 +194,7 @@ const Navbar = () => {
                 <Link className="link" to={path}>
                   {name}
                 </Link>
-              </div>
+              </div> 
             ))}
           </Slider>
         </>
