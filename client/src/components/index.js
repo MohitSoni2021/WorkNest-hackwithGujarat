@@ -6,7 +6,7 @@ export { default as Slide } from "./Slide/Slide";
 export { default as PrevArrow } from "./Arrows/PrevArrow";
 export { default as NextArrow } from "./Arrows/NextArrow";
 export { default as ProjectCard } from "./ProjectCard/ProjectCard";
-export { default as GigCard } from "./GigCard/GigCard";
+export { default as GigCard } from "./gigCard/GigCard";
 export { default as Reviews } from "./Reviews/Reviews";
 export { default as Review } from "./Review/Review";
 export { default as CheckoutForm } from "./checkoutForm/CheckoutForm";

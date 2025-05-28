@@ -111,22 +111,18 @@ const Add = () => {
 
             <div className="images">
               <div className="imagesInputs">
-                <div className="">
-                  <label htmlFor="">Cover Image</label>
-                  <input type="file" accept='image/*' onChange={(event) => setCoverImage(event.target.files[0])} /> 
-                </div>
-                
-                <div className="">
-                  <label htmlFor="">Upload Images</label>
-                  <input type="file" accept='image/*' multiple onChange={(event) => setGigImages(event.target.files)} />  
-                </div>
+                <label htmlFor="">Cover Image</label>
+                <input type="file" accept='image/*' onChange={(event) => setCoverImage(event.target.files[0])} />
+                <br />
+                <label htmlFor="">Upload Images</label>
+                <input type="file" accept='image/*' multiple onChange={(event) => setGigImages(event.target.files)} />
               </div>
               <button disabled={!!disabled} onClick={handleImageUploads}>{uploading ? 'uploading' : disabled ? 'Uploaded' : 'upload'}</button>
             </div>
 
             <label htmlFor="">Description</label>
             <textarea name='description' cols="30" rows="16" placeholder='Brief descriptions to introduce your service to customers' onChange={handleFormCange}></textarea>
-            
+            <button onClick={handleFormSubmit}>Create</button>
           </div>
 
           <div className="right">
@@ -162,7 +158,6 @@ const Add = () => {
             <input name='price' type="number" min='1' onChange={handleFormCange} />
           </div>
         </div>
-        <button onClick={handleFormSubmit} className='createButton'>Create</button>
       </div>
     </div>
   )
