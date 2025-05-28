@@ -1,10 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
-:root {
-  --green-color: #1dbf73;
-}
-
-.notFound {
+.success {
   min-height: 100vh;
   background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f0 100%);
   color: #1a1a2e;
@@ -20,16 +16,16 @@
     animation: fadeIn 0.8s ease-in-out;
 
     h1 {
-      font-size: 6rem;
+      font-size: 2.5rem;
       font-weight: 700;
       margin-bottom: 10px;
-      background: linear-gradient(90deg, var(--green-color), #17a05d);
+      background: linear-gradient(90deg, #1e90ff, #00ddeb);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    .notFound__subtitle {
-      font-size: 1.5rem;
+    .success__subtitle {
+      font-size: 1.2rem;
       color: #4a5568;
       max-width: 600px;
       margin: 0 auto;
@@ -54,48 +50,16 @@
 
   &__message {
     text-align: center;
+    font-size: 1.2rem;
+    color: #4a5568;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 15px;
 
-    .notFound__icon {
-      font-size: 3.5rem;
-      color: var(--green-color);
+    .success__icon {
+      font-size: 3rem;
       animation: pulse 2s infinite;
-    }
-
-    h2 {
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: #1a1a2e;
-    }
-
-    p {
-      font-size: 1.2rem;
-      color: #4a5568;
-    }
-  }
-
-  &__button {
-    background: linear-gradient(90deg, var(--green-color), #17a05d);
-    color: #ffffff;
-    border: none;
-    border-radius: 8px;
-    padding: 12px 24px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-    &:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-
-    &:focus {
-      outline: none;
-      box-shadow: 0 0 0 3px rgba(29, 191, 115, 0.3);
     }
   }
 
@@ -123,7 +87,6 @@
       backdrop-filter: blur(8px);
       border-radius: 12px;
       padding: 20px;
-      border: 1px solid rgba(29, 191, 115, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
 
       &:hover {
@@ -131,11 +94,10 @@
         box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
       }
 
-      .notFound__feature-icon {
+      .success__feature-icon {
         font-size: 2.5rem;
         margin-bottom: 15px;
         display: block;
-        color: var(--green-color);
       }
 
       h3 {
@@ -179,7 +141,6 @@
       padding: 10px 20px;
       font-size: 1.2rem;
       color: #1a1a2e;
-      border: 1px solid rgba(29, 191, 115, 0.1);
       transition: transform 0.3s ease;
 
       &:hover {
@@ -197,11 +158,11 @@
 
     &__header {
       h1 {
-        font-size: 4.5rem;
+        font-size: 2rem;
       }
 
-      .notFound__subtitle {
-        font-size: 1.3rem;
+      .success__subtitle {
+        font-size: 1rem;
       }
     }
 
@@ -215,21 +176,11 @@
   @media screen and (max-width: 600px) {
     &__header {
       h1 {
-        font-size: 3.5rem;
+        font-size: 1.8rem;
       }
 
-      .notFound__subtitle {
-        font-size: 1.1rem;
-      }
-    }
-
-    &__message {
-      h2 {
-        font-size: 1.5rem;
-      }
-
-      p {
-        font-size: 1rem;
+      .success__subtitle {
+        font-size: 0.9rem;
       }
     }
 

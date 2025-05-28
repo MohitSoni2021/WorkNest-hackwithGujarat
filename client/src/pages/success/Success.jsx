@@ -1,9 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { axiosFetch } from "../../utils";
 import { useRecoilValue } from "recoil";
 import { userState } from "../../atoms";
-import "../Success/Success.scss";
+import "./Success.scss";
 
 const Success = () => {
   const { search } = useLocation();
@@ -11,26 +11,34 @@ const Success = () => {
   const params = new URLSearchParams(search);
   const payment_intent = params.get("payment_intent");
   const user = useRecoilValue(userState);
+  const [countdown, setCountdown] = useState(5);
 
   useEffect(() => {
-    (async () => {
-      try {
-        await axiosFetch.patch("/orders", { payment_intent });
-        setTimeout(() => {
-          navigate("/orders");
-        }, 5000);
-      } catch ({ response }) {
-        console.log(response.data.message);
-      }
-    })();
+    setTimeout(() => {
+      console.log("Payment Intent:", payment_intent);
+      navigate(`/orders?userId=${user._id}`);
+    }, 5000)
   }, []);
 
   return (
-    <div className="pay-message">
-      Payment successful. You are being redirected to the orders page. Please do
-      not close the page
+    <div className="success">
+      <div className="success__header">
+        <h1>Payment Successful!</h1>
+        <p className="success__subtitle">
+          Thank you for your purchase. You will be redirected to your orders page in {countdown} seconds.
+        </p>
+      </div>
+      <div className="success__container">
+        <div className="success__message">
+          <span className="success__icon">🎉</span>
+          <p>
+            Your payment was processed successfully. Please do not close the page while we redirect you.
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
+
 
 export default Success;
