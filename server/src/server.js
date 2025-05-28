@@ -13,7 +13,7 @@ const app = express();
 
 // ✅ FIXED: Correct CORS configuration
 app.use(cors({
-    origin: ['http://localhost:5173', process.env.PROD_CORS_ORIGIN], // Must match your frontend's URL
+    origin: ['http://localhost:5173', process.env.PROD_CORS_ORIGIN, "https://work-nest-hackwith-gujarat.vercel.app/"], // Must match your frontend's URL
     credentials: true                // Allows cookies/auth headers
 }));
 
