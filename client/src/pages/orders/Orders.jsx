@@ -6,6 +6,8 @@ import { useRecoilValue } from "recoil";
 import { userState } from "../../atoms";
 import { Loader } from '../../components';
 import "./Orders.scss";
+import { BiMessageDetail } from "react-icons/bi";
+
 
 const Orders = () => {
   const navigate = useNavigate();
@@ -93,12 +95,13 @@ const Orders = () => {
                     })}
                   </td>
                   <td>
-                    <img
+                    {/* <img
                       className="message"
                       src="./media/message.png"
                       alt="message"
                       onClick={() => handleContact(order)}
-                    />
+                    /> */}
+                    <BiMessageDetail onClick={() => handleContact(order)} />
                   </td>
                 </tr>
               ))}

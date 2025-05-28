@@ -19,29 +19,28 @@ $shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
 
   .container {
-    max-width: 1280px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem 1rem;
+    padding: 2.5rem 1rem;
   }
 
   .title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     background: $glass-bg;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border: 1px solid $glass-border;
     border-radius: 1rem;
     padding: 1.5rem 2rem;
     box-shadow: $shadow;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
 
     h1 {
-      font-size: 2rem;
+      font-size: 2.25rem;
       font-weight: 700;
       color: $text-primary;
       line-height: 1.2;
+      margin: 0;
     }
   }
 
@@ -56,18 +55,21 @@ $shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
     thead {
       background: $glass-bg;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid $glass-border;
 
       th {
-        padding: 1rem;
+        padding: 1.25rem 1rem;
         font-size: 0.875rem;
         font-weight: 600;
         color: $text-primary;
         text-transform: uppercase;
-        letter-spacing: 0.05em;
+        letter-spacing: 0.06em;
         text-align: left;
+        position: sticky;
+        top: 0;
+        z-index: 10;
 
         &:first-child {
           border-top-left-radius: 1rem;
@@ -81,39 +83,46 @@ $shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
     tbody {
       tr {
-        transition: background 0.2s ease;
+        transition: background 0.3s ease, transform 0.2s ease;
 
         &:hover {
-          background: rgba($green-color, 0.05);
+          background: rgba($green-color, 0.06);
+          transform: translateY(-2px);
         }
 
         td {
-          padding: 1rem;
+          padding: 1.25rem 1rem;
           font-size: 0.9375rem;
           color: $text-secondary;
           border-bottom: 1px solid #e5e7eb;
+          vertical-align: middle;
 
           &:first-child {
-            width: 80px;
+            width: 100px;
           }
 
           .img {
-            width: 60px;
-            height: 60px;
+            width: 64px;
+            height: 64px;
             object-fit: cover;
             border-radius: 0.5rem;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+
+            &:hover {
+              transform: scale(1.05);
+            }
           }
 
           .message {
-            width: 24px;
-            height: 24px;
+            width: 28px;
+            height: 28px;
             cursor: pointer;
             transition: transform 0.3s ease, opacity 0.3s ease;
 
             &:hover {
-              transform: scale(1.1);
-              opacity: 0.8;
+              transform: scale(1.15);
+              opacity: 0.85;
             }
           }
         }
@@ -136,10 +145,13 @@ $shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       thead {
         tr {
           display: flex;
+          flex-wrap: nowrap;
 
           th {
             flex: 1;
-            min-width: 100px;
+            min-width: 120px;
+            padding: 0.75rem;
+            font-size: 0.8125rem;
           }
         }
       }
@@ -148,19 +160,24 @@ $shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         tr {
           display: flex;
           flex-wrap: wrap;
-          margin-bottom: 1rem;
-          border-bottom: 1px solid #e5e7eb;
+          margin-bottom: 1.5rem;
+          border-bottom: 2px solid #e5e7eb;
           padding-bottom: 1rem;
+          background: white;
+          border-radius: 0.75rem;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 
           td {
             flex: 1;
-            min-width: 100px;
+            min-width: 120px;
+            padding: 0.75rem;
             border-bottom: none;
+            font-size: 0.875rem;
 
             &:first-child {
               width: 100%;
               text-align: center;
-              margin-bottom: 0.5rem;
+              margin-bottom: 0.75rem;
 
               .img {
                 width: 80px;
@@ -170,8 +187,24 @@ $shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
             &:last-child {
               text-align: center;
+              width: 100%;
             }
           }
+        }
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 1.5rem 0.5rem;
+      }
+
+      .title {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+
+        h1 {
+          font-size: 1.75rem;
         }
       }
     }

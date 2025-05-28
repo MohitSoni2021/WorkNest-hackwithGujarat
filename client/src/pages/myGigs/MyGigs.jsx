@@ -7,6 +7,7 @@ import { useRecoilValue } from 'recoil';
 import { userState } from '../../atoms';
 import { Loader } from '../../components';
 import './MyGigs.scss';
+import { MdDelete } from "react-icons/md";
 
 const MyGigs = () => {
   const user = useRecoilValue(userState);
@@ -86,7 +87,8 @@ const MyGigs = () => {
                         })}</td>
                         <td>{gig.sales}</td>
                         <td>
-                          <img className='delete' src="./media/delete.png" alt="delete" onClick={() => handleGigDelete(gig)} />
+                          {/* <img className='delete' src="./media/delete.png" alt="delete" onClick={() => handleGigDelete(gig)} /> */}
+                          <MdDelete onClick={() => handleGigDelete(gig)} size={24}/>
                         </td>
                       </tr>
                     ))

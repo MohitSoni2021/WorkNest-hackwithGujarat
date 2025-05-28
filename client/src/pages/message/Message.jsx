@@ -59,7 +59,7 @@ const Message = () => {
             ? <div className="loader"> <Loader /> </div>
             : error
               ? 'Something went wrong'
-              : <div className="messages">
+              : <div className="messages-body">
                 {
                   data.map((message) => (
                     <div className={message.userID._id === user._id ? 'owner item' : 'item'} key={message._id}>
