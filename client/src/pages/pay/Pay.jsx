@@ -52,7 +52,7 @@ const Pay = () => {
         <h1>Secure Payment</h1>
         <p className="pay__subtitle">Complete your transaction with confidence using Stripe.</p>
       </div>
-      <div className="pay__container">
+      <div className="pay__container" >
         {isLoading ? (
           <div className="pay__loading">Loading payment details...</div>
         ) : error ? (
