@@ -1,4 +1,4 @@
-# 🚀 Hackathon Project: Gigs Marketplace
+# 🚀 Hackathon Project: WorkNest
 
 Welcome to our Gigs Marketplace platform! Below you’ll find all the essential links, tech stack, project features, and instructions to get started.
 
@@ -6,8 +6,9 @@ Welcome to our Gigs Marketplace platform! Below you’ll find all the essential 
 
 ## 📂 Important Links
 
-- 🎥 [📑 Presentation Video Link](https://your-presentation-link.com)
-- 🎥 [📑 Project Overview Video Link](https://your-project-overview-link.com)
+- [Forntend Deployment Link ](https://work-nest-hackwith-gujarat.vercel.app/)
+- - [Backend Deployment Link](https://work-nest-4miners.onrender.com)
+- [Project Overview Video Link](https://www.youtube.com/watch?v=gvADEsOXH28)
 
 ---
 
